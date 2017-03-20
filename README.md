@@ -15,9 +15,10 @@ Install a Kubernetes cluster and make sure Helm is ready (i.e. `helm init`).
 
 ```console
 helm install \
-    --namespace=steward --name=svc-catalog \
-    --set registry=quay.io/kubernetes-service-catalog,version=34b14fe,storageType=tpr,debug=true,insecure=true,imagePullPolicy=IfNotPresent,globalNamespace=steward \
-    svc-catalog
+    --namespace=steward \
+    --name=svc-catalog \
+    --set registry=quay.io/kubernetes-service-catalog,version=3500924,storageType=tpr,debug=true,insecure=true,imagePullPolicy=IfNotPresent,globalNamespace=steward \
+    ./svc-catalog
 ```
 
 ### Install the S3 Provider
@@ -27,14 +28,18 @@ helm install \
 export STEWARD_ACCESS_KEY=<aws-access-key>
 export STEWARD_SECRET_KEY=<aws-secret-key>
 
-helm install s3-provider --namespace=steward --name=s3-provider \
-    --set AdminAwsAccessKeyId=${STEWARD_ACCESS_KEY},AdminAwsSecretAccessKey=${STEWARD_SECRET_KEY}
+helm install \
+    --namespace=steward \
+    --name=s3-provider \
+    --set AdminAwsAccessKeyId=${STEWARD_ACCESS_KEY},AdminAwsSecretAccessKey=${STEWARD_SECRET_KEY} \
+    ./s3-provider
+    
 ```
 
 ### Install the S3 Consumer
 
 ```console
-helm install s3-consumer --namespace=steward --name=s3-consumer
+helm install --namespace=steward --name=s3-consumer ./s3-consumer
 ```
 
 ### Cleanup
