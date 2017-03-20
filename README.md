@@ -39,7 +39,7 @@ helm install \
 ### Install the S3 Consumer
 
 ```console
-helm install --namespace=steward --name=s3-consumer ./s3-consumer
+helm install --namespace=steward --name=s3-consumer --set ImageTag=3f9d9f0 ./s3-consumer
 ```
 
 ### Cleanup
