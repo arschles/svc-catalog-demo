@@ -17,7 +17,7 @@ Install a Kubernetes cluster and make sure Helm is ready (i.e. `helm init`).
 helm install \
     --namespace=steward \
     --name=svc-catalog \
-    --set registry=quay.io/kubernetes-service-catalog,version=3500924,storageType=tpr,debug=true,insecure=true,imagePullPolicy=IfNotPresent,globalNamespace=steward \
+    --set registry=quay.io/kubernetes-service-catalog,version=1dfd38b,storageType=tpr,debug=true,insecure=true,imagePullPolicy=IfNotPresent,globalNamespace=steward \
     ./svc-catalog
 ```
 
